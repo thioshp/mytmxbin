@@ -1,0 +1,11 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Source:	https://github.com/aviaryan/utility-bash-scripts
+
+# Using the awesome wttr.in as weather forecast provider.
+
+# Usage: `weather CITYNAME` or just `weather` to use your IP addr. location.
+
+CITYNAME="Thika" #OR any other eg Nairobi, Mombasa etc
+
+curl http://wttr.in/$CITYNAME
+

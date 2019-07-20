@@ -1,0 +1,15 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+SNAME="$0"
+URL="$1"
+
+if [ $# != 1 ]; 
+then
+	echo "Usage: $SNAME <URL>"
+   echo
+	echo "Open a URL in a browser"
+   echo
+	exit 1
+fi
+
+am start --user 0 -a android.intent.action.VIEW -d $URL > /dev/null

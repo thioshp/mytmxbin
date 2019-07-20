@@ -1,0 +1,6 @@
+#!/system/bin/sh
+
+cat /storage/emulated/0/Codelab/terminal256color.txt
+
+echo $TERM
+echo

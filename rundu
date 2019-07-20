@@ -1,0 +1,5 @@
+#!/system/bin/sh
+
+#Run DiskUsage
+
+am start -a android.intent.action.MAIN --user 0 -n com.google.android.diskusage/.SelectActivity

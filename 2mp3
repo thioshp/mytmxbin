@@ -1,0 +1,14 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# input filename will be changed to *.mp3
+fn=${1%.*}
+
+# convert 2 mp3
+ffmpeg -i "$1" -acodec libmp3lame "$fn.mp3"
+
+# more resources:
+# http://stackoverflow.com/questions/3255674/convert-audio-files-to-mp3-using-ffmpeg
+# http://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
+
+# http://stackoverflow.com/questions/2711001/how-to-apply-shell-command-to-each-line-of-a-command-output
+# ls -1 | while read line ; do echo $line ; done

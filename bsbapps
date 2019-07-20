@@ -1,0 +1,4 @@
+#!/system/bin/sh
+echo "List of BusyBox applets"
+echo
+busybox --list-full | sort

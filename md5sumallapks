@@ -1,0 +1,19 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+
+LOGF="allapks_$(date +'%d-%m-%Y-%S').md5"
+
+cd /sdcard/backups/apps
+
+echo "Calculating md5 checksums for all APKs...."
+
+echo
+
+find . -name '*.apk' -exec md5sum {} \; 1>>$LOGF 2>>$LOGF
+
+echo "Finished...showing results...."
+
+echo
+
+cat $LOGF | sort
+

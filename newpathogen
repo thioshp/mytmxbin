@@ -1,0 +1,7 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+cd ~/.vim/autoload
+
+cp pathogen.vim pathogen.vim.old
+
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
