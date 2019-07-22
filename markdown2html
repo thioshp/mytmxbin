@@ -1,0 +1,21 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# If NO ARG is given by user...
+if [ "X$1" = "X" ];
+then
+	#...show usage message
+	echo "Usage: `basename $0` <file.md>";
+
+	# Exit this script...
+	shift; #...for bash
+	#exit 1; #...for sh
+else
+	#MDF="$1"
+	HTF="${1%md}html"
+
+	echo "Please wait while $1 is being converted to $HTF";
+
+	python -m markdown -v -o html -e utf8 $1 -f $HTF;
+
+	echo "Done.";
+fi

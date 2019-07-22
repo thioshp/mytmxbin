@@ -1,0 +1,5 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Find and list shell scripts within level 1 of a git repo
+
+git grep -l --max-depth 1 '#!'

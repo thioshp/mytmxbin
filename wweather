@@ -1,0 +1,40 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+# Params
+#  1. -current|-forecast
+#  2. location
+
+
+if [ "x$1" = "x" ] || [ "x$2" = "x" ]; then
+	echo "Usage: `basename $0` <TYPE OF FORECAST> <LOCATION>\nFor example, to get the current weather for Thika, run\n\twweather -current Thika\n";
+   exit 1;
+fi
+
+
+if [ "x$1" = "x-current" ]; then
+
+
+  curl -s "http://m.wund.com/cgi-bin/findweather/getForecast?brand=mobile&query=$2"| \
+    sed -n '/Updated:/,/<\/table>/p'|grep -v "Moon Phase"|grep -v "Raw METAR"| \
+    sed 's/<\/td><td>/ /g;s/<tr>//g;s/<td>//g;s/<\/span>//g;s/<span class="nowrap">//g;s/<b>//g;s/<\/b>//g;s/<.*table>//g;s/<\/td>//g'| \
+    tr '\n' ' '|sed 's/<\/tr>/\n/g;s/<br \/>/\n/g;s/&deg;//g;s/&nbsp;//g'| \
+    sed -e '/^[ \t]$/d'|tr -s ' \t'|tr -d '\t'|sed 's/<\/tr>/\n/g;s/<br \/>/\n/g;s/&deg;//g;s/&nbsp;//g'| \
+    sed -e 's/^[ \t]*//g'|sed '/^$/d'
+fi
+
+
+if [ "x$1" = "x-forecast" ]; then
+
+
+  curl -s "http://m.wund.com/cgi-bin/findweather/getForecast?brand=mobile&query=$2"| \
+    sed -n '/name="forecast"/,/<\/table>/p'| \
+    sed 's/<td align="right"//g;s/<img src.*>//g;s/<td align="left">//g;s/<.*center>//g;s/<table.*>//g;s/<\/a>//g;s/<\/div>//g;s/<br>//g;s/<a name.*>//g;'|\
+    sed 's/<\/td><td>/ /g;s/<tr>//g;s/<td>//g;s/<\/span>//g;s/<span class="nowrap">//g;s/<b>//g;s/<\/b>//g;s/<.*table>//g;s/<\/td>//g'| \
+    tr '\n' ' '|sed 's/<\/tr>/\n/g;s/<br \/>/\n/g;s/&deg;//g;s/&nbsp;//g;s/ >//g'| \
+    sed -e '/^[ \t]$/d'|tr -s ' \t'|tr -d '\t'|sed 's/<\/tr>/\n/g;s/<br \/>/\n/g;s/&deg;//g;s/&nbsp;//g'| \
+    sed -e 's/^[ \t]*//g'|sed '/^$/d'
+fi
+
+
+exit 1;
+
