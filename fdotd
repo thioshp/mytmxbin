@@ -1,0 +1,4 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Find a dir with the input term
+find . -maxdepth 1 -type d -name ".*"
