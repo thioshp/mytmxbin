@@ -1,0 +1,5 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Colourful listing of tar archives
+tar tvzf $1 | tarcolor
+
