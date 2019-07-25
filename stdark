@@ -1,0 +1,16 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+ROOTDIR="$HOME/www/html/"
+MIMEF="$HOME/mime.types"
+DAEMON="--daemon"
+LOGF="$HOME/logs/darkhttpd.log"
+
+#if [ -e $LOGF ];
+#then
+#	cp $LOGF $LOGF.`date +%s`.bak
+#fi
+
+darkhttpd $ROOTDIR --mimetypes $MIMEF --daemon --log $LOGF
+
+tail -f $LOGF
+
