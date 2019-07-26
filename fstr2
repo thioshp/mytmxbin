@@ -1,0 +1,28 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Alternative to the fstr function define in my .bashrc
+# Useful when Termux's find and xargs give an error when fstr is executed.
+
+    OPTIND=1;
+    local mycase="";
+    local usage="fstr2: Find string in files.
+	Usage: fstr2 [-i] \"pattern\" [\"filename pattern\"] ";
+    while getopts :it opt; do
+        case "$opt" in 
+            i)
+                mycase="-i "
+            ;;
+            *)
+                echo "$usage";
+                return
+            ;;
+        esac;
+    done;
+    shift $(( $OPTIND - 1 ));
+    if [ "$#" -lt 1 ]; then
+        echo "$usage";
+        return;
+    fi;
+    busybox find . -type f -name "${2:-*}" -print0 | busybox xargs -0 egrep -sn ${case} "$1" | busybox more
+
+
