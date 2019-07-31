@@ -1,0 +1,3 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+echo "  Line Word Chars Filename"&& wc *.*
