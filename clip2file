@@ -1,0 +1,9 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Paste/save clipboard contents to a file
+
+termux-clipboard-get > "$1"
+
+# Add new line to end of file
+echo >>"$1"
+
