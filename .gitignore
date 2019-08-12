@@ -1,1 +1,5 @@
 *.*~ #Exclude backup files
+*.log
+mount
+tarfile
+todo
