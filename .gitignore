@@ -1,5 +1,7 @@
 *.*~ #Exclude backup files
-*.log
+*.log #ignore logs
+
+# ignore the following symlinks
 mount
 tarfile
 todo
