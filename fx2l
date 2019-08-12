@@ -1,0 +1,14 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+FILE_PATH="${1}"
+
+FILE_EXTENSION="${FILE_PATH##*.}"
+
+FILE_EXTENSION_LOWER=$(echo ${FILE_EXTENSION} | tr '[:upper:]' '[:lower:]')
+
+echo -e "File path:\t $FILE_PATH"
+echo -----
+echo -e "File extension: \t$FILE_EXTENSION"
+echo -----
+echo -e "File extension in lowercase: \t$FILE_EXTENSION_LOWER"
+echo -----

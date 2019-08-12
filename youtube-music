@@ -1,0 +1,39 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+USAGE="Download a YouTube video using either aria2c or wget to ~/Downloads/Music.\nUsage: $0 <YouTube-URL> <FORMAT>\nWhere FORMAT is either vorbis, mp3, wav or m4a.\n Leave format blank to get the default m4a format\n"
+
+# Show usage and quit script if no input is entered by the user.
+
+if [ "XS1" = "X" ];
+then
+	echo -e $USAGE;
+	exit;
+else
+	if [ ! -d ~/Downloads/Music ]; then
+		mkdir -p ~/Downloads/Music
+		fi
+
+
+cd ~/Downloads/Music || return
+
+# get output format
+# pass these as values - vorbis,mp3,m4a,wav. Defaults to M4A
+
+format=m4a
+
+# Use default m4a format if none is given
+if [ "$2" ]; 
+then
+	format=$2
+fi
+
+# download using aria2c if found...
+if hash aria2c 2> /dev/null; then
+  youtube-dl --prefer-ffmpeg -f 171/251/140/bestaudio --extract-audio --audio-format "$format" --audio-quality 0 --external-downloader aria2c "$1"
+else
+	# use ytdl itself if aria2c is NOT installed
+	# ytdl will first try to get a 145k webm (171) and if format not found, will get a 167k webm (251), which if missing, ytdl will get a 129k m4a (140)audio. If none of tthese formats is found, ytdl will get the best audio format it finds (bestaudio)
+	youtube-dl --prefer-ffmpeg -f 171/251/140/bestaudio --extract-audio --audio-format "$format" --audio-quality 0 "$1"
+fi
+fi
+# 171 - webm 145k, 251 - webm 167k, 140 - m4a 129k

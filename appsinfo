@@ -1,0 +1,9 @@
+#!/system/bin/sh
+
+# Run Applications Info
+
+APP=com.majeur.applicationsinfo
+ACT=.MainActivity
+
+am start -a android.intent.action.MAIN --user 0 -n $APP/$ACT
+

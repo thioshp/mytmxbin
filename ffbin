@@ -1,0 +1,5 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Find an exexutable in $TMXBIN
+fd -L "$1" $TMXBIN
+

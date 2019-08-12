@@ -1,0 +1,6 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# List all files whose name contains the user-given term/keyword.
+
+find . -type f -name "*$1*"
+

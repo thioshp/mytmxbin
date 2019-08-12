@@ -1,0 +1,9 @@
+#!/system/bin/sh
+
+# Run ADM Web Browser
+
+APP=com.dv.adm.pay
+ACT=.Web
+
+am start -a android.intent.action.MAIN --user 0 -n $APP/$ACT
+

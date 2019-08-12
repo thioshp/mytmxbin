@@ -1,0 +1,8 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Find duplicates recursiveky in the current folder, log results to a file
+
+WHR=$(realpath .)
+LOGF="duplicates-$(date +%s).log"
+
+fdupes -Sr . | tee $LOGF

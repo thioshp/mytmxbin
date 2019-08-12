@@ -1,0 +1,27 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Converts ANY audio/video file into OGG
+
+# Display usage and exit if no inout file is given
+if [ "X$1" = "X" ];
+then
+	echo -e "Convert ANY audio/vido into OGG sound file in the current directory.\n";
+	echo -e "USAGE: $0 <Audio/Video-File-to-Convert>\n";
+	shift;
+else
+
+	fn=${1%.*} # Final OGG file
+
+	# ffmpeg -i "$1" -acodec libmp3lame "$fn.mp3"
+
+	ffmpeg -i "$1" -vn -y "$fn.ogg"
+
+fi
+
+# More resources
+## http://bytefreaks.net/gnulinux/bash/ffmpeg-extract-audio-from-webm-to-ogg
+## http://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
+
+## http://stackoverflow.com/questions/2711001/how-to-apply-shell-command-to-each-line-of-a-command-output
+## ls -1 *.webm | xargs -L1 echo
+

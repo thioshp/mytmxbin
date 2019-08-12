@@ -1,0 +1,8 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+MP4FILES=`find . -type f -name "*.mp4"`
+
+for i in $MP4FILES
+do
+  ffmpeg -i "$i" -vn -ar 44100 -ac 2 -ab 320k -f mp3 "${i%mp4}mp3"
+done

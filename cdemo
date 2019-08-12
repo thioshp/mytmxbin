@@ -1,0 +1,10 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+CACA_DRIVER=raw
+
+#cacademo | cacaserver
+# run cacaserver in the background
+cacaserver &
+
+# Connect to cacaserver
+telnet localhost 51914

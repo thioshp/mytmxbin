@@ -1,0 +1,14 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Use vim as pager for man pages
+
+MPAGE="$1"
+
+# export MANPAGER="vim -M +MANPAGER -"
+# export MANPAGER="vim"
+#if the above export in your .bashrc fails OR the following doesn't work..
+#vim -M +MANPAGER $MPAGE
+#...you need to pass the man page thru col -b then use vim's manpager plugin to correctly show the manpage, i.e:
+
+man $MPAGE | col -b | vim -c ":MANPAGER" -
+

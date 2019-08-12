@@ -1,0 +1,7 @@
+# Add to a file's beginning the following (plus the #) to tell vim that file's type for proper syntax highlighting. 
+
+# vim: ft=
+
+# Add the following (plus the double quotes)o file's footer to tell vim tab spacing of 8
+
+" vim: ts=8 
