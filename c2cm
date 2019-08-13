@@ -1,0 +1,11 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# View a script's code in colors via the more pager
+
+if [ -e $1 ];
+then
+	code2color $1 | more -s;
+else
+	errored "The file $1 was not found.";
+	exit;
+fi
