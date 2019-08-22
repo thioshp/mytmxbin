@@ -1,0 +1,10 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+NEWSCRIPT="$1"
+
+echo -e "#!$PREFIX/bin/bash\n" > $HOME/bin/$NEWSCRIPT
+
+vim $HOME/bin/$NEWSCRIPT
+
+#chmod 775 $HOME/bin/$NEWSCRIPT
+

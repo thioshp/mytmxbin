@@ -1,0 +1,15 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Used to automatically add the shebang header to a new bash script in $HOME/bin then editing it in vim
+
+SCRIPT="$1"
+
+# Add shebang header
+cat ~/bin/basheader > ~/bin/$SCRIPT
+
+# Edit script in vim
+vim ~/bin/$SCRIPT
+
+# Make script executable
+#chmod 775 $SCRIPT
+
