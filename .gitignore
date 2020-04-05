@@ -1,6 +1,9 @@
 *.*~ #Exclude backup files
 *.log #ignore logs
 
+# Ignore vim backup files
+*.orig
+
 # ignore the following symlinks
 tarfile
 todo
